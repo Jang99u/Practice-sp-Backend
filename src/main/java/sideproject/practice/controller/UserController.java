@@ -1,6 +1,7 @@
 package sideproject.practice.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sideproject.practice.dto.user.request.CreateUserRequest;
 import sideproject.practice.service.UserService;
@@ -17,7 +18,7 @@ public class UserController {
     }
 
     @GetMapping
-    public String getUserName(@RequestParam Long userId) {
+    public ResponseEntity<String> getUserName(@RequestParam Long userId) {
         return userService.getUserName(userId);
     }
 }
