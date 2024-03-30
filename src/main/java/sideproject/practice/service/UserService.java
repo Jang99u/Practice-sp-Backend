@@ -15,7 +15,7 @@ public class UserService {
 
     @Transactional
     public void saveUser(CreateUserRequest createUserRequest) {
-        userRepository.save(new User(createUserRequest.getName()));
+        userRepository.save(new User(createUserRequest.name()));
     }
 
     @Transactional(readOnly = true)

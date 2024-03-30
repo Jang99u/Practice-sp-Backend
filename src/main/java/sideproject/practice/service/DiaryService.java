@@ -23,7 +23,7 @@ public class DiaryService {
         User user = userRepository.findById(userId)
                 .orElseThrow(IllegalAccessError::new);
 
-        diaryRepository.save(new Diary(createDiaryRequest.getTitle(), createDiaryRequest.getContent(),user));
+        diaryRepository.save(new Diary(createDiaryRequest.title(), createDiaryRequest.content(),user));
     }
 
     @Transactional(readOnly = true)
