@@ -1,13 +1,12 @@
 package sideproject.practice.dto.diary.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
 
-@Getter
-public class CreateDiaryRequest {
-    @JsonProperty("title")
-    private String title;
+public record CreateDiaryRequest(
+        @JsonProperty("title")
+        String title,
 
-    @JsonProperty("content")
-    private String content;
+        @JsonProperty("content")
+        String content
+) {
 }
