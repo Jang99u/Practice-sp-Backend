@@ -8,10 +8,13 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name = "emotion")
 public class Emotion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+    @Column(name = "reaction")
     private String reaction;
     @ManyToOne
     @JoinColumn(name = "diary_id")
