@@ -27,7 +27,7 @@ public class EmotionService {
         emotionRepository.save(new Emotion(createEmotionRequest.reaction(), diary));
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public ResponseEntity<List<String>> getDiaryEmotion(@RequestParam Long diaryId) {
         List<String> emotionList= emotionRepository.findAllByDiaryId(diaryId).stream()
                 .map(emotion -> emotion.getReaction())

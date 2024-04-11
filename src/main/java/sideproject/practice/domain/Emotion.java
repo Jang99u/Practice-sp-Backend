@@ -14,8 +14,10 @@ public class Emotion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
     @Column(name = "reaction")
     private String reaction;
+
     @ManyToOne
     @JoinColumn(name = "diary_id")
     private Diary diary;
