@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import sideproject.practice.domain.User;
 import sideproject.practice.dto.user.request.CreateUserRequest;
+import sideproject.practice.exeption.CustomErrorCode;
+import sideproject.practice.exeption.CustomException;
 import sideproject.practice.repository.UserRepository;
 
 @Service
@@ -21,7 +23,7 @@ public class UserService {
     @Transactional(readOnly = true)
     public ResponseEntity<String> getUserName(Long userId) {
         User user = userRepository
-                .findById(userId).orElseThrow(IllegalAccessError::new);
+                .findById(userId).orElseThrow(() -> new CustomException(CustomErrorCode.USER_NOT_FOUND));
         return ResponseEntity.ok().body(user.getName());
     }
 }

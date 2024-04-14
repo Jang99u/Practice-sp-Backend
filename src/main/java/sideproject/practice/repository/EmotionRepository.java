@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface EmotionRepository extends JpaRepository<Emotion, Long> {
     List<Emotion> findAllByDiaryId(Long diaryId);
+    boolean existsByDiaryId(Long diaryId);
 }
